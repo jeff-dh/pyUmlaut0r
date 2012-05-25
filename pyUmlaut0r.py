@@ -8,6 +8,7 @@ import dbus.service
 from dbus.mainloop.qt import DBusQtMainLoop
 
 import utils
+import pyUmlaut0rRes
 
 app = QApplication(sys.argv)
 
@@ -41,7 +42,7 @@ utils.setProcessName("pyUmlaut0r")
 
 #create trayIcon
 trayIcon = QSystemTrayIcon()
-trayIcon.setIcon(QIcon("umlautIcon.png"))
+trayIcon.setIcon(QIcon(":/umlautIcon.png"))
 trayIcon.setContextMenu(utils.createMenu())
 trayIcon.show()
 
