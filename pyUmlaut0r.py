@@ -42,7 +42,7 @@ utils.setProcessName("pyUmlaut0r")
 
 #create trayIcon
 trayIcon = QSystemTrayIcon()
-trayIcon.setIcon(QIcon(":/umlautIcon.png"))
+trayIcon.setIcon(QIcon(":/pyUmlaut0rIcon.png"))
 trayIcon.setContextMenu(utils.createMenu())
 trayIcon.show()
 
