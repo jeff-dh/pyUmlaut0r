@@ -13,7 +13,7 @@ import pyUmlaut0rRes
 app = QApplication(sys.argv)
 
 #try to connect to tray icon daemon and show menu
-if len(sys.argv) < 2 or sys.argv[1] != "-d":
+if sys.argv[-1] == "-d":
   try:
     utils.setProcessName("pyUmlaut0r-client")
     #connect to daemon
