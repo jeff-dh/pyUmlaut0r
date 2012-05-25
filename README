@@ -17,8 +17,8 @@ running pyUmlaut0r
 
 start the daemon:
 
-  ./pyUmlaut0r.py -d
+  ./pyUmlaut0r.py
 
-call the "client menu":
-  ./pyUmlautor.py
+call the "dbus client menu":
+  ./pyUmlautor.py -d
 
