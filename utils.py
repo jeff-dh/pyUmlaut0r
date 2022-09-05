@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from PyQt4.QtGui import QMenu, QAction, QClipboard, QApplication
+from PyQt5.QtGui import QClipboard
+from PyQt5.QtWidgets import QMenu, QAction, QApplication
 
 def createMenu():
   def createAction(s):

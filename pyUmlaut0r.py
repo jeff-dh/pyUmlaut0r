@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from PyQt4.QtGui import QApplication, QSystemTrayIcon, QIcon, QCursor, QMessageBox
+from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QMessageBox
+from PyQt5.QtGui import QIcon, QCursor
 import sys
 import dbus
 import dbus.service
-from dbus.mainloop.qt import DBusQtMainLoop
+from dbus.mainloop.pyqt5 import DBusQtMainLoop
 
 import utils
 import pyUmlaut0rRes
@@ -13,7 +14,7 @@ import pyUmlaut0rRes
 app = QApplication(sys.argv)
 
 #try to connect to tray icon daemon and show menu
-if sys.argv[-1] == "-d":
+if not sys.argv[-1] == "-d":
   try:
     utils.setProcessName("pyUmlaut0r-client")
     #connect to daemon
@@ -25,7 +26,7 @@ if sys.argv[-1] == "-d":
     action = menu.exec_(QCursor.pos())
 
     #send character
-    server.toClipboard(unicode(action.text()), \
+    server.toClipboard(action.text(), \
                        dbus_interface = 'org.documentroot.umlaut0r')
 
     sys.exit(0)
@@ -33,7 +34,7 @@ if sys.argv[-1] == "-d":
   except dbus.exceptions.DBusException:
     QMessageBox.critical(None, "Can't connect",
                         """Can't connect to pyUmlaut0r daemon.\nYou should first start a daemon by calling:\n'pyUmlaut0r.py -d'.""")
-    print "can't connect to daemon"
+    print("can't connect to daemon")
     sys.exit(1)
 
 
